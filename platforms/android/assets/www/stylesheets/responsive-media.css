@@ -1,0 +1,115 @@
+
+@media only screen and (max-width: 414px){
+#hib-crowd-ads .crowds_playstore img{
+	width: 70%;
+	height: auto;
+}
+#hib-promote-ads-info .crowds_playstore img{
+	width: 70%;
+	height: auto;
+}
+#hib-store-now-open .crowds_playstore img{
+	width: 60%;
+	height: auto;
+}
+#hib-crowd-ads .play_video_crowdad{
+	top: -139px;
+}
+#hib-crowd-ads .play_video_crowdad .innerplay_div{
+	width: 56%;
+}
+}
+@media only screen and (max-width: 375px){
+#hib-crowd-ads .crowds_playstore img{
+	width: 70%;
+	height: auto;
+}
+#hib-promote-ads-info .crowds_playstore img{
+	width: 70%;
+	height: auto;
+}
+#hib-store-now-open .crowds_playstore img{
+	width: 60%;
+	height: auto;
+}
+#hib-crowd-ads .play_video_crowdad{
+	top: -127px;
+}
+#hib-crowd-ads .play_video_crowdad .innerplay_div{
+	width: 56%;
+}
+}
+@media only screen and (max-width: 320px) {
+#hib-crowd-ads .crowds_playstore img{
+	width: 90%;
+	height: auto;
+}
+#hib-promote-ads-info .crowds_playstore img{
+	width: 90%;
+	height: auto;
+}
+#hib-store-now-open .crowds_playstore img{
+	width: 60%;
+	height: auto;
+}
+#hib-crowd-ads .play_video_crowdad{
+	top: -127px;
+}
+#hib-crowd-ads .play_video_crowdad .innerplay_div{
+	width: 72%;
+	height: 133px;
+}
+}
+/*---------------- i-pad css---------------------*/
+@media only screen and (min-width: 600px){
+.startEnd_segment .Enddate #promoteAdEndDate, .startEnd_segment .startDate #promoteAdStartDate {
+width: 70% !important;
+}
+.radio-spc.female{
+	float: left;
+}
+#hib-promote-ads-info .crowds_playstore a .icon-arrow-target:before{
+	font-size: 110px;
+}
+#hib-promote-ads-info .crowds_playstore a span{
+	top: -65px;
+	font-size: 26px;
+}
+#hib-crowd-ads .crowds_playstore a span{
+	top: -65px;
+	font-size: 26px;
+}
+#hib-crowd-ads .crowds_playstore a .icon-play-fill:before{
+	padding: 14px 0px 0px 17px;
+	font-size: 86px;
+}
+#hib-crowd-ads .crowds_playstore a.darticon{
+	height: 120px;
+	width: 120px;
+}
+.typecomment .inputbox{
+	width: 89%;
+}
+.fluidHeight{
+	height: 395px;
+}
+#hib-login .hib_signup_logo_img img{
+	width: 25%;
+	margin-top: 40px;
+}
+#hib-signup .centered.title img{
+	width: 25%;
+}
+.install_supportdiv .image{
+	width: 10%;
+}
+.install_supportdiv .text_app{
+	width: 88%;
+	margin-left: 1%;
+}
+.install_supportdiv .text_app .msg{
+	width: 90%;
+	padding-top: 6px;
+	text-align: center;
+}
+}

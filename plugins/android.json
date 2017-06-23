@@ -1,0 +1,60 @@
+{
+    "prepare_queue": {
+        "installed": [],
+        "uninstalled": []
+    },
+    "config_munge": {
+        "files": {}
+    },
+    "installed_plugins": {
+        "cordova-plugin-datepicker": {
+            "PACKAGE_NAME": "com.feedQuest.app"
+        },
+        "cordova-plugin-device": {
+            "PACKAGE_NAME": "com.feedQuest.app"
+        },
+        "cordova-plugin-dialogs": {
+            "PACKAGE_NAME": "com.feedQuest.app"
+        },
+        "cordova-plugin-geolocation": {
+            "PACKAGE_NAME": "com.feedQuest.app"
+        },
+        "cordova-plugin-inappbrowser": {
+            "PACKAGE_NAME": "com.feedQuest.app"
+        },
+        "cordova-plugin-splashscreen": {
+            "PACKAGE_NAME": "com.feedQuest.app"
+        },
+        "cordova-plugin-statusbar": {
+            "PACKAGE_NAME": "com.feedQuest.app"
+        },
+        "cordova-plugin-whitelist": {
+            "PACKAGE_NAME": "com.feedQuest.app"
+        },
+        "cordova-plugin-x-socialsharing": {
+            "PACKAGE_NAME": "com.feedQuest.app"
+        },
+        "cordova.plugins.diagnostic": {
+            "PACKAGE_NAME": "com.feedQuest.app"
+        },
+        "phonegap-plugin-barcodescanner": {
+            "PACKAGE_NAME": "com.feedQuest.app"
+        },
+        "cordova-plugin-facebook4": {
+            "APP_ID": "507945172662589",
+            "APP_NAME": "feedQuest",
+            "PACKAGE_NAME": "com.feedQuest.app"
+        },
+        "cordova-plugin-network-information": {
+            "PACKAGE_NAME": "com.feedQuest.app"
+        },
+        "cordova-plugin-touch-id": {
+            "PACKAGE_NAME": "com.feedQuest.app"
+        }
+    },
+    "dependent_plugins": {
+        "cordova-plugin-compat": {
+            "PACKAGE_NAME": "com.feedQuest.app"
+        }
+    }
+}

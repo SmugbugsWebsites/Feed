@@ -1,0 +1,205 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>FeedQuest</title>
+		<meta name="description" content="FeedQuest">
+		<meta name="author" content="FeedQuest">
+		<meta name="HandheldFriendly" content="True">
+		<meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, height=device-height, target-densityDpi=160dpi" />
+		<meta name="google-signin-scope" content="profile email">
+		<meta name="google-signin-client_id" content="79160522678-3gmiugqlfrs2n860qie3bushtdh4kmfr.apps.googleusercontent.com">
+		<script src="https://apis.google.com/js/platform.js" async defer></script>
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta name="format-detection" content="telephone=no">
+		<meta http-equiv="cleartype" content="on">
+		<!-- Main Stylesheet -->
+		<link rel="stylesheet" href="stylesheets/css/Lungo.base.css">
+		<link rel="stylesheet" href="stylesheets/css/Lungo.layout.css">
+		<link rel="stylesheet" href="stylesheets/css/Lungo.layout.nav.css">
+		<link rel="stylesheet" href="stylesheets/css/Lungo.layout.aside.css">
+		<link rel="stylesheet" href="stylesheets/css/Lungo.layout.article.css">
+		<link rel="stylesheet" href="stylesheets/css/Lungo.layout.list.css">
+		<link rel="stylesheet" href="stylesheets/css/Lungo.layout.grid.css">
+		<link rel="stylesheet" href="stylesheets/css/Lungo.widgets.css">
+		<link rel="stylesheet" href="stylesheets/css/Lungo.widgets.splash.css">
+		<link rel="stylesheet" href="stylesheets/css/Lungo.widgets.button.css">
+		<link rel="stylesheet" href="stylesheets/css/Lungo.widgets.form.css">
+		<link rel="stylesheet" href="stylesheets/css/Lungo.widgets.icon.css">
+		<link rel="stylesheet" href="stylesheets/css/Lungo.widgets.icon.brand.css">
+		<link rel="stylesheet" href="stylesheets/css/Lungo.widgets.loading.css">
+		<link rel="stylesheet" href="stylesheets/css/Lungo.widgets.notification.css">
+		<link rel="stylesheet" href="stylesheets/css/Lungo.widgets.pull.css">
+		<link rel="stylesheet" href="stylesheets/css/Lungo.theme.default.css">
+		<!-- App Stylesheet -->
+		<link rel="stylesheet" href="stylesheets/app.css">
+		<!-- Common Stylesheet -->
+		<link rel="stylesheet" href="stylesheets/jquery-ui.css">
+		<link rel="stylesheet" href="stylesheets/main.css">
+		<link rel="stylesheet" href="stylesheets/jquery.onoff.css">
+		<!-- FONTS -->
+		<link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
+            
+		<style>
+			.titlemain ,.feedmain, .feedbk {
+				padding-top:15px !important;
+			}
+		</style>
+	</head>
+	<body class="app">
+		<!-- Lungo dependencies -->
+		<script type="text/javascript" src="https://js.stripe.com/v2/"></script>
+		<script type="text/javascript" src="cordova.js"></script>
+		<script src="lib/quo.debug.js"></script>
+		<script src="lungo.js"></script>
+		<script src="js/jquery-2.0.2.js"></script>
+		<script src="js/jquery.min.js"></script>
+		<script src="js/jquery-ui.js"></script>
+		<script src="js/bootstrap.js"></script>
+		<script src="app/app.js"></script>
+		<script src="app/fblogin.js"></script>
+		<script src="app/config.js"></script>
+		<script src="app/main.js"></script>
+		<script src="app/phonegap.js"></script>
+		<script type="text/javascript" src="app/jquery.js"></script>
+		<script type="text/javascript" src="app/jquery.onoff.js"></script>
+		<script type="text/javascript" src="app/card.js"></script>
+		<script type="text/javascript" src="app/jquery.card.js"></script>
+		<script>
+		
+			var appInstall = window.localStorage.getItem("appInstall");
+			var section = 'feed02';
+			if(appInstall == "1"){
+				section = 'feed03';
+			}
+			
+			Lungo.init({
+				name: 'FeedQuest',
+				version: '1.0.0',
+				resources: ['app/sections/'+section+'.html','app/asides/feed03-dropmenu.html']
+			});
+			Lungo.dom('[data-router=section]').tap(function(){
+				var sectId = $(this).parents('section').attr('id');
+				slide_back_remove(sectId);
+			});
+			
+			
+			
+			
+			function route_section(secID){
+				$('aside#feed03-dropmenu').removeClass('show');
+				$('section').removeClass('aside');
+				$('section').removeClass('right');
+				var sect = secID + '.html';
+				if($('#'+secID).length == 0){
+					var resources = ['app/sections/'+sect];
+					Lungo.Resource.load(resources);
+				}
+                setTimeout(function(){
+                    Lungo.Router.section(secID);
+                },100);
+				
+			}
+			
+			function slide_back_remove(secID){
+				$('aside#feed03-dropmenu').removeClass('show');
+				$('section').removeClass('aside');
+				$('section').removeClass('right');
+				Lungo.Router.back();
+				$('#'+secID).remove();
+			}
+			
+			function getCache(){
+				var CacheData = {};
+				var loginData = window.localStorage.getItem("loginCache");
+				if (loginData != '' && loginData != null && loginData != undefined) {
+					loginData = JSON.parse(loginData);
+                    isfingerprintavail();
+					if (isRealValue(loginData)) {
+						userID = loginData.userID;
+						userName = loginData.userName;
+						userEmail = loginData.userEmail;
+						userImage = loginData.userImage;
+						userContact = loginData.userContact;
+						userNature = loginData.userNature;
+						setUserdashboard();
+					} else {
+						showError('Session expire. Login again');
+						LogOutUser();
+						return false;
+					}				
+				}
+			}
+
+			function isRealValue(obj) {
+				return obj && obj !== "null" && obj !== "undefined";
+			}
+			
+			function setStripePublic(){
+				//alert('stripe');
+				var url = 'PaymentContoller/getConfig';
+				var jsonData = {};
+				callAjaxFunction(url, jsonData, setStripePublicASYNC);
+			}
+			
+			var setStripePublicASYNC = function(response){
+				//alert(response);
+				Stripe.setPublishableKey(response);
+			}
+			
+			setTimeout(function(){
+				setStripePublic();
+				getCache();
+				seTmenu();
+				var w = window,
+					d = document,
+					e = d.documentElement,
+					g = d.getElementsByTagName('body')[0],
+					x = w.innerWidth || e.clientWidth || g.clientWidth,
+					y = w.innerHeight || e.clientHeight || g.clientHeight;
+				$('#loader').css('height',parseInt(y)+'px');
+				$('.popupmsg').css('height',parseInt(y)+'px');
+			},1000);
+		</script>
+		<div class="transparent_layer"> </div>
+		<div class="network_error">
+			<div class="no_connection"> <span class="network_tower"> <img src="images/network_tower.png"> </span>
+				<label class="message">Seems like you are not connected with internet.
+				<br/> Please check your internet connection.</label> <a href="javascript:void(0);" onclick="checkNetworkStatus()">Retry</a>
+			</div>
+		</div>
+		<div class="whitebg" id="loader">
+			<div class="bubblingG">
+				<span id="bubblingG_1">
+				</span>
+				<span id="bubblingG_2">
+				</span>
+				<span id="bubblingG_3">
+				</span>
+			</div>
+		</div>
+		<div id="feed05" class="verifying">
+			<div class="feedmain">
+				<div class="titlemain">
+				</div>
+				<div class="loadingbar">
+					<div class="loadbar">
+						<span class="very">We are verifying your location</span>
+						<span class="verifyingbar" id="loaderVerifying"></span>		
+					</div>     		
+				</div>
+			</div>
+		</div>
+		<div class="feedmain popupmsg">
+			<div class="feedthanks">
+				<a href="javascript:void();" id="closepopup" class="clsbtn"><img src="images/close-button.svg"></a>
+				<h4 id="msghead">Welcome msg</h4>
+				<p id="msgbody">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+			</div>
+		</div>
+        <div class="enable_push_notication_onoff">
+            <lable id="msgNotification"></lable>
+        </div>
+	</body>
+</html>

@@ -1,0 +1,11 @@
+{
+		"android": {
+			"release": {
+				"keystore": "feedquest.keystore",
+				"storePassword": "android",
+				"alias": "feedquest",
+				"password" : "android",
+				"keystoreType": ""
+			}
+		}
+	}

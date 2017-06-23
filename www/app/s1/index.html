@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>SocketCluster</title>
+    <link rel="icon" type="image/png" href="/favicon.ico">
+    <script type="text/javascript" src="http://www.yummapp.com/chat/s1/socketcluster.js"></script>
+    <script type="text/javascript" src="http://www.yummapp.com/chat/s1/utils/utils.js"></script>
+    <script type="text/javascript" src="http://www.yummapp.com/chat/s1/messaging-app.js"></script>
+    <script type="text/javascript" src="http://www.yummapp.com/chat/s1/utils/jquery.js"></script>
+    <link rel="stylesheet" href="http://www.yummapp.com/chat/s1/bootstrap.css">
+  </head>
+  <body>
+    <h1>Connect First</h1>
+    <label>Your Id</label>
+    <input id="user-id" type="text" name="name" value="">
+    <label>Your Sha Salt</label>
+    <input id="user-salt" type="text" name="name" value="">
+    <div id="connect" type="button" class="btn" name="name" value="Send">Send</div>
+
+    <h1>Send Message To A User</h1>
+    <label>Message</label>
+    <input id="user-message-box" type="text" name="name" value="">
+    <label>Id</label>
+    <input id="user-message-id" type="text" name="name" value="">
+    <div id="send-user-message" type="button" class="btn" name="name" value="Send">Send</div>
+
+    <h1>Send Messaage To A Group</h1>
+    <label>Message</label>
+    <input id="group-message-box" type="text"   name="name" value="">
+    <label>Group Id</label>
+    <input id="group-message-id"  type="text"   name="name" value="">
+    <div id="send-group-message"  type="button" class="btn" name="name" value="Send">Send</div>
+
+    <h1>User Messages</h1>
+    <div id="user-messages" style="min-width: 300px; min-height: 300px; border: 1px solid black;"></div>
+
+    <h1>All Message While you have been offline</h1>
+    <div id="offline-messages" style="min-width: 300px; min-height: 300px; border: 1px solid black;"></div>
+
+    <h1>Create Group</h1>
+    <label>Group Name</label>
+    <input id="group-name" type="text"   name="name" value="">
+    <div id="create-group"  type="button" name="name" class="btn" value="Send">Create Group</div>
+
+    <script type="text/javascript">
+      var messageApi = new MessageApi();
+      $('#connect').click(function () {
+        var id = $('#user-id').val(),
+            salt = $('#user-salt').val();
+
+            messageApi.connect(id, salt, function (err, res) {
+              alert('Error!');
+            }, function (err, res) {
+              alert('Connected!');
+            });
+
+            messageApi.getBackupMessages(function (err, res) {
+              if(err) {
+                console.log(err);
+                alert("Error: Go to browser console!");
+              } else {
+                for(var i = 0; i < res.data.length; i++) {
+                  var obj = '<li>' + JSON.stringify(res.data[i]) + '</li>'
+                  $('#offline-messages').append(obj);
+                }
+              }
+            });
+
+            messageApi.connectToPersonalMessage(function (message) {
+              var obj = '<li>' + new Date().toString() + ': ' + JSON.stringify(message) + '</li>'
+              $('#user-messages').append(obj);
+            })
+      });
+
+      $('#send-user-message').click(function () {
+        var message = $('#user-message-box').val(),
+            id      = $('#user-message-id').val();
+        // message, id, type, upin, fType, mType, flink, pType, cb
+        messageApi.sendMessage(message, id, 'personal', 'jgiwejfio', 1, 2, 3, 4, function (err, res) {
+          if(err) {
+            console.log(err);
+            alert("Error: Go to browser console!");
+          } else {
+            console.log(res);
+            alert('Success: Go to console!');
+          }
+        });
+      })
+
+      $('#send-group-message').click(function () {
+        var id = $('#group-message-id').val();
+        var message = $('#group-message-box').val();
+
+        messageApi.sendMessage(message, id, 'group', 'jgiwejfio', 1, 2, 3, 4, function (err, res) {
+          if(err) {
+            alert("Error: Go to browser console!");
+            console.log(err);
+          } else {
+            alert(res);
+          }
+        });
+      })
+
+      $('#create-group').click(function () {
+        var gName = $('#group-name').val();
+
+        messageApi.creatGroup(gName, '', function (err, res) {
+          if(err) {
+            console.log(err);
+            alert('Error: go to console!');
+          } else {
+            console.log(res);
+            alert('Success: go to to see output!');
+          }
+        });
+      });
+
+    </script>
+  </body>
+</html>

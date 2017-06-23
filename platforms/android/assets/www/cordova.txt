@@ -1,0 +1,60 @@
+smugbugsApps@gmail.com
+smugbugsApps123
+
+to get feed from fb page,
+
+https://graph.facebook.com/?ids=akshaykumarofficial,AmitabhBachchan&fields=posts.limit(100){message,created_time,picture}&access_token={}
+
+
+hello@smugbugs.com
+
+
+http://graph.facebook.com/67563683055/picture?type=large
+
+Keystore name: "debug.keystore"
+Keystore password: "android"
+Key alias: "androiddebugkey"
+Key password: "android"
+CN: "CN=Android Debug,O=Android,C=US"
+
+to generate keystore rum cmd Always in admin mode
+keytool -genkey -v -keystore popin.keystore -alias popin -keyalg RSA -keysize 2048 -validity 10000
+
+keytool -list -v -keystore popin.keystore -alias popin
+3B:C9:0B:C4:A1:9E:59:B8:70:92:46:74:57:CC:4D:8D:E3:7E:4F:11
+30:F4:9B:9F:DA:B3:DB:60:35:E7:08:94:1D:BF:52:8E:52:42:4F:4C:6C:A4:E1:BC:42:85:58:49:E0:9E:41:86
+ 803433772325-ptuf8dssbmgh500bgkube2srdm10utve.apps.googleusercontent.com 
+
+cordova plugin add cordova-plugin-googleplus --variable REVERSED_CLIENT_ID=803433772325-ptuf8dssbmgh500bgkube2srdm10utve.apps.googleusercontent.com
+
+google map img
+var img_url = "https://maps.googleapis.com/maps/api/staticmap?center="+latlon+"&zoom=14&size=400x300&sensor=false";
+document.getElementById("mapholder").innerHTML = "<img src='"+img_url+"'>";
+
+
+
+https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=30.642550,76.817336&radius=5000&type=restaurant&key=AIzaSyAjy1ars_ats2bUblQ5y3zZ7IxXt02Nmf8
+
+
+
+https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=30.642550,76.817336&radius=500&type=restaurant&key=AIzaSyAjy1ars_ats2bUblQ5y3zZ7IxXt02Nmf8
+
+https://maps.googleapis.com/maps/api/place/textsearch/json?query=bar+and+pubs+in+panchkula&key=YOUR_API_KEY
+
+
+
+https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=CoQBdwAAAD4kyU0eO5TD6y-nQQVKA16e4mfj2U9D8_3-chNK6NLlDFoCabfevJkGVhKi6vPa3GUCaBLRCypo9YO0zcA3mMgobm1RalxX0tjty1YYyjbEUExtFLOlC-4VuCnJBGSoBai5xkSV7G4NBj-KHGRTtm4yzidjbNdHfdQoLZR1cqVvEhAnjOarlwisAZbH3u6xycrUGhSzxEVxlfNgNXOkqGPX4-2XmDMBSg&key=AIzaSyDJCY66IAnFeKzsLGoZXMWstIGMITwpgIQ
+
+http://codepen.io/rauldronca/pen/oYbXyZ
+
+http://codepen.io/code_dependant/pen/bjFgq
+
+http://codepen.io/woodiz/pen/KCrin
+
+http://codepen.io/magnus16/pen/BKoRNw
+
+http://codepen.io/magnus16/pen/BKoRNw
+
+https://maps.googleapis.com/maps/api/place/photo?maxwidth=800&photoreference=CoQBcwAAAIR_WoSMWXgQyfoOGqCywaoqetCTy9tWlo7dXIUK5oOsbXl5ZH-1M5qNMC_oGb7LiNbrUXpObrryvnho7crCqL3TCx5kTaBZfUrQ0CSVown861_8NIKCoF57WgS4OyjEyHmaS84jqoluXt2GfW6IynzYvrPvoW1cY7HP-sapnmRqEhD_ZG6itfnYL5_ScmyyHs1xGhSffqE5ZiJhUYqdsfYPR-EXO9XMVQ&key=&key=AIzaSyDJCY66IAnFeKzsLGoZXMWstIGMITwpgIQ"
+types
+:

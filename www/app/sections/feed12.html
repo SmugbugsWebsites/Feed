@@ -1,0 +1,71 @@
+<section id="feed12">
+   <article class="scroll active">
+      <div class="feedmain page">
+         <div class="titlemain">
+            <a href="javascript:void(0);" class="arrowleft" data-router="section"></a>
+            <a href="javascript:aside();" class="menu menu-w"></a>
+         </div>
+         <div class="loginlogo midsmallogo">
+            <img src="images/logo-small.png">    		
+         </div>
+         <ul class="formgive">
+            <li>
+               <label>Event name</label>
+               <input type="text" name="" placeholder="Event" id="Ceventname">
+            </li>
+            <li onclick="dateTime('date');">
+               <label>Event date</label>
+               <input type="text" name="" placeholder="Event date" id="Ceventdate" disabled />
+            </li>
+            <li onclick="dateTime('time');">
+               <label>Event time</label>
+               <input type="text" name="" placeholder="Event time" id="Ceventtime" disabled />
+            </li>
+            <li>
+               <label>Address 1</label>
+               <input type="text" name="" placeholder="Address" id="Ceventaddress1">
+            </li> 
+            <li>
+               <label>Address 2</label>
+               <input type="text" name="" placeholder="Address" id="Ceventaddress2">
+            </li>
+            <li>
+               <label>City</label>
+               <input type="text" name="" placeholder="City name" id="Ceventcity">
+            </li> 
+            <li>
+               <label>State</label>
+               <input type="text" name="" placeholder="State name" id="Ceventstate">
+            </li> 
+             <li>
+               <label>Country</label>
+               <input id="Ceventcntry" value="United states of america" placeholder="Country name" name=""/>
+            </li> 
+            <li class="djinformation" onclick="setDjinfo();">
+               <label>DJ information</label>           
+            </li> 
+			<div class="djInfo">
+				<li class="small-fifty"  onclick="setDjdetail(0);">
+					<input id="radio1" type="radio" name="Ceventradio" value="iam"> 
+					<label for="radio1"><span><span></span></span>I am DJ</label>               
+				</li>
+				<li class="small-fifty" onclick="setDjdetail(1);">
+					<input id="radio2" type="radio" name="Ceventradio" value="other"> 
+					<label for="radio2"><span><span></span></span>Add DJ</label>                
+				</li>
+				<div class="djDetail">
+					<li>
+					   <label>Name</label>
+					   <input type="text" name="" placeholder="Sam’s" id="Ceventdjname">
+					</li> 
+					<li>
+					   <label>Email</label>
+					   <input type="email" name="" placeholder="Email address" id="Ceventdjemail">
+					</li>
+				</div>
+			</div>        
+            <li class="margin-top20" onclick="createEventQR();"><button class="startbtn">Submit</button></li>
+         </ul>
+      </div>
+   </article>
+</section>

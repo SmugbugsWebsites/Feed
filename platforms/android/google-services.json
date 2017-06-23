@@ -1,0 +1,62 @@
+{
+  "project_info": {
+    "project_number": "79160522678",
+    "firebase_url": "https://feedquest-app.firebaseio.com",
+    "project_id": "feedquest-app",
+    "storage_bucket": "feedquest-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:79160522678:android:1a8f69d7a97b6ba2",
+        "android_client_info": {
+          "package_name": "com.feedQuest.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "79160522678-uihe6vsmneghf7ul54em1q1h7ri089g0.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.feedQuest.app",
+            "certificate_hash": "63CE578E07A613D89E23525BC14BF3355322962F"
+          }
+        },
+        {
+          "client_id": "79160522678-r1hkig7885tkioduomr5uvtne3865kmj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA6aj27hh9dhQKllzOtVVSCPRSvFxEDOMg"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "79160522678-4ucf3t9be4dh11q7bs7vbkkgo56pvod0.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.feedQuest.app"
+              }
+            },
+            {
+              "client_id": "79160522678-r1hkig7885tkioduomr5uvtne3865kmj.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
